@@ -191,7 +191,7 @@ class TestPackaging(unittest.TestCase):
         self.assertIn("## [0.2.0]", read("CHANGELOG.md"))
         self.assertIn("## [0.1.0]", read("CHANGELOG.md"))
 
-    def test_license_author_orcid_no_doi(self):
+    def test_license_author_orcid_and_verified_dois(self):
         z = json.loads(read(".zenodo.json"))
         self.assertEqual(z["license"], "AGPL-3.0-only")
         self.assertEqual(z["creators"][0]["orcid"], "0009-0000-9778-5374")
@@ -200,8 +200,10 @@ class TestPackaging(unittest.TestCase):
         cff = read("CITATION.cff")
         self.assertIn("AGPL-3.0-only", cff)
         self.assertIn("0009-0000-9778-5374", cff)
-        self.assertNotRegex(cff, r"(?m)^doi:")
-        self.assertNotIn("10.5281", cff + read(".zenodo.json"))
+        # DOIs are only the two read from the public Zenodo record of the v0.2.0 release
+        self.assertRegex(cff, r'(?m)^doi: "10\.5281/zenodo\.23687826"$')
+        self.assertIn("10.5281/zenodo.23687825", cff)
+        self.assertNotIn("10.5281", read(".zenodo.json"))
         self.assertIn("GNU AFFERO GENERAL PUBLIC LICENSE", read("LICENSE").upper())
 
     def test_ci_covers_all_python_versions(self):
