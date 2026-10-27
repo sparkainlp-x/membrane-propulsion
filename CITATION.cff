@@ -9,6 +9,15 @@ authors:
     affiliation: "Spark AI NLP, Fredericton, New Brunswick, Canada"
 repository-code: "https://github.com/sparkainlp-x/membrane-propulsion"
 version: 0.2.0
+doi: "10.5281/zenodo.23687826"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23687826"
+    description: "Version DOI for v0.2.0"
+  - type: doi
+    value: "10.5281/zenodo.23687825"
+    description: "Concept DOI (all versions)"
+date-released: "2026-10-27"
 license: AGPL-3.0-only
 abstract: >-
   Synthetic, stdlib-only Python toy: a ring of 64 phase oscillators with a

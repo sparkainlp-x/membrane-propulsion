@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.2.0] - local packaging 2026-10-26 (not published, not released)
+## [0.2.0] - 2026-10-27
 
 Base: the supplied v0.2.0 upload. `membrane_propulsion.py` is byte-identical to the
 supplied v0.1.0 and v0.2.0 files (no behaviour change).

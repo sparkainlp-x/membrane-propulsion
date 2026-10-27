@@ -66,6 +66,12 @@ does not know k or Omega in advance — it infers them from the
 vibration alone (test-pinned: no drive parameters in its constructor).
 Strong noise lowers coherence below the locked value (test-pinned).
 
+## Archive and citation
+
+Archived on Zenodo. Software DOI for v0.2.0:
+[10.5281/zenodo.23687826](https://doi.org/10.5281/zenodo.23687826) (all versions: [10.5281/zenodo.23687825](https://doi.org/10.5281/zenodo.23687825)).
+Cite via `CITATION.cff` (GitHub's "Cite this repository").
+
 ## Run
 
 ```
