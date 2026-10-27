@@ -1,4 +1,4 @@
-"""Rigor experiments for membrane-propulsion v0.1.0 (stdlib only, seeded).
+"""Rigor experiments for membrane-propulsion v0.2.0 (stdlib only, seeded).
 
 SYNTHETIC toy. Nothing here is physics, propulsion, thrust, force, energy or a
 property of any real system. "Displacement" is the drift of a probe whose
