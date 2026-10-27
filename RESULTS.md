@@ -26,7 +26,7 @@ Sensor README table (seed 42, locked, position 10):
 | reverse k=-1 | +1.114 / -1.000 / -1.00 / 0.990 | +1.114 / -1.000 / -1.00 / 0.990 |
 | uniform k=0 | +2.096 / -1.000 / +0.00 / 1.000 | +2.096 / -1.000 / +0.00 / 1.000 |
 
-**Discrepancy found (documentation, not code).** README, DESIGN and `demo.py` say "seed 3 gives -28.1" for the no-drive ring. The measured no-drive displacements are: seed 0 -2.2, seed 1 +0.7, seed 2 -28.1, seed 3 -1.0, seed 42 +1.8. The -28.1 value belongs to **seed 2**, not seed 3. The mechanism the sentence describes (a no-drive ring can fall into a twisted state and drift) is real and is quantified in section 3.
+**Discrepancy found (documentation, not code; corrected in the same PR).** The v0.2.0 upload (README, DESIGN, `demo.py`, a `tests.py` comment) said "seed 3 gives -28.1" for the no-drive ring. The measured no-drive displacements are: seed 0 -2.2, seed 1 +0.7, seed 2 -28.1, seed 3 -1.0, seed 42 +1.8. The -28.1 value belongs to **seed 2**, not seed 3. The mechanism the sentence describes (a no-drive ring can fall into a twisted state and drift) is real and is quantified in section 3.
 
 Other reproduced facts: uniform k=0 with no warmup gives +7.64 (the README's "warmup matters" point); with warmup -0.000006. Reverse and forward by seed: seed 0: +20.000 / -20.000; seed 1: +20.000 / -20.000; seed 2: +20.000 / -20.000; seed 3: +20.000 / -20.000; seed 42: +20.000 / -20.000.
 
@@ -366,7 +366,7 @@ Reading: `omega` is a one-step finite difference of a wrapped phase, so it is co
 
 ## 11. Falsified, surprising, and negative results
 
-- The README/DESIGN/demo statement "seed 3 gives -28.1" is wrong: it is seed 2 (seed 3 gives -1.0).
+- The v0.2.0 upload's statement "seed 3 gives -28.1" (README, DESIGN, demo, a test comment) was wrong: it is seed 2 (seed 3 gives -1.0). The label is corrected in this PR.
 - The no-drive ring is not "approximately still": 32% of seeds drift >= 10 sites and 14% drift as far as the driven ring or farther (max 98.1 sites). The no-drive control must be run over many seeds before any drive-vs-no-drive claim.
 - The default warmup (10 time units) is far shorter than the twisted-state relaxation time (~208); the "steady-state" no-drive number at default settings is a transient, and twisted states persist even after long warmup.
 - Noise: at sigma = 2 the sign is retained in only 57.0% (57/100; Wilson 95% 47.2-66.3%) of seeds.

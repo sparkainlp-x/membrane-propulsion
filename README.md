@@ -31,7 +31,7 @@ Direction is controlled by the drive sign, consistently across seeds
 0, 1, 2, 3, 42 (all +k > +10, all -k < -10). Uniform drive gives ~0.
 
 **Honest control that does NOT go away:** without a drive, the ring
-can fall into a twisted state and drift on its own — seed 3 gives
+can fall into a twisted state and drift on its own — seed 2 gives
 -28.1 sites steady-state with no drive at all. So the drive controls
 the *sign*, it does not create drift from nothing. That twisted-state
 result is kept in the tests, not hidden.

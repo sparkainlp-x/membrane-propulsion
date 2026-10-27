@@ -78,8 +78,8 @@ def render(res):
     add(_table(["Case", "README phase / omega / k_est / coherence",
                 "measured phase / omega / k_est / coherence"], rows))
     nd = rp["nodrive_by_seed"]
-    add("**Discrepancy found (documentation, not code).** README, DESIGN and `demo.py` say \"seed 3 gives "
-        "-28.1\" for the no-drive ring. The measured no-drive displacements are: " +
+    add("**Discrepancy found (documentation, not code; corrected in the same PR).** The v0.2.0 upload (README, "
+        "DESIGN, `demo.py`, a `tests.py` comment) said \"seed 3 gives -28.1\" for the no-drive ring. The measured no-drive displacements are: " +
         ", ".join("seed %s %s" % (s, _f(v, 1)) for s, v in sorted(nd.items(), key=lambda kv: int(kv[0]))) +
         ". The -28.1 value belongs to **seed 2**, not seed 3. The mechanism the sentence describes (a "
         "no-drive ring can fall into a twisted state and drift) is real and is quantified in section 3.\n")
@@ -384,7 +384,7 @@ def render(res):
     # ---------------------------------------------------------------- 11 surprises
     add("## 11. Falsified, surprising, and negative results\n")
     items = [
-        "The README/DESIGN/demo statement \"seed 3 gives -28.1\" is wrong: it is seed 2 (seed 3 gives %s)." % _f(nd["3"], 1),
+        "The v0.2.0 upload's statement \"seed 3 gives -28.1\" (README, DESIGN, demo, a test comment) was wrong: it is seed 2 (seed 3 gives %s). The label is corrected in this PR." % _f(nd["3"], 1),
         "The no-drive ring is not \"approximately still\": %.0f%% of seeds drift >= 10 sites and %.0f%% drift as far as the driven ring or farther (max %s sites). The no-drive control must be run over many seeds before any drive-vs-no-drive claim." % (
             100 * nd_["abs_ge_10"]["rate"], 100 * nd_["abs_ge_20"]["rate"], _g(nd_["max_abs"], 1)),
         "The default warmup (10 time units) is far shorter than the twisted-state relaxation time (~%s); the \"steady-state\" no-drive number at default settings is a transient, and twisted states persist even after long warmup." % _g(an["relaxation_time_estimate"], 0),

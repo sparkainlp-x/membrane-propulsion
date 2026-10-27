@@ -29,7 +29,7 @@ refusal gate for the drift itself.
    ring hold a travelling wave and, crucially, lets it fall into a
    twisted state. Mean-field coupling would have hidden that. The
    twisted state is the most interesting control result in the toy:
-   seed 3 drifts -28.1 sites with no drive at all.
+   seed 2 drifts -28.1 sites with no drive at all.
 
 4. **Wave-order, not global order, for locking.** A k=1 travelling
    wave spreads phases uniformly around the circle, so the classic
@@ -40,7 +40,7 @@ refusal gate for the drift itself.
 ## Falsified / rejected designs
 
 - **"Drive creates drift from nothing."** Falsified by the no-drive
-  twisted state (seed 3, -28.1). Revised claim: drive controls sign.
+  twisted state (seed 2, -28.1). Revised claim: drive controls sign.
 - **"Global order measures locking."** Falsified as above; replaced
   by wave-order.
 - **"Count all displacement from t=0."** Falsified by the uniform-drive
@@ -84,10 +84,11 @@ tests check, not a value copied from the model.
 Added after running `rigor.py` (see `RESULTS.md`). The text above is left unchanged; where the data
 contradict it, this addendum is the correction.
 
-1. **Seed label.** Above, "seed 3 drifts -28.1 sites with no drive at all" is a mislabel. Measured no-drive
+1. **Seed label (corrected in this PR).** The v0.2.0 upload said "seed 3 drifts -28.1 sites with no drive at all"
+   in this file, the README, `demo.py` and a comment in `tests.py`; that was a mislabel, now fixed to seed 2.
+   Measured no-drive
    displacements: seed 0 -2.2, seed 1 +0.7, seed 2 **-28.1**, seed 3 -1.0, seed 42 +1.8. The -28.1 is seed 2.
-   The code is unchanged; `tests.py` and `demo.py` still carry the old label in a comment and a printed
-   line (the test itself does not depend on it).
+   Only the label text changed; no code or behaviour changed (the test itself does not depend on the label).
 2. **"Revised claim: drive controls sign."** Over 200 seeds the claim holds for the locked drive (sign right
    in 200/200, 100.0%, Wilson 95% 98.1-100.0%) but it is true **by construction**: the probe law is assumed
    (`v = mu * local phase gradient`) and a locked wave has gradient `2*pi*k/N` everywhere, so
