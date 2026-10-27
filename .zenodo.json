@@ -20,5 +20,12 @@
     "phase oscillators",
     "reproducible",
     "Python"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/sparkainlp-x/membrane-propulsion",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
   ]
 }

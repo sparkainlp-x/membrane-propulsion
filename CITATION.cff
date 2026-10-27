@@ -7,6 +7,7 @@ authors:
     given-names: "Jean-François"
     orcid: "https://orcid.org/0009-0000-9778-5374"
     affiliation: "Spark AI NLP, Fredericton, New Brunswick, Canada"
+repository-code: "https://github.com/sparkainlp-x/membrane-propulsion"
 version: 0.2.0
 license: AGPL-3.0-only
 abstract: >-
