@@ -24,7 +24,8 @@ supplied v0.1.0 and v0.2.0 files (no behaviour change).
 - README section pointing to RESULTS.md; DESIGN.md addendum (original text untouched).
 
 ### Documentation findings (no code change)
-- The README, DESIGN and `demo.py` attribute the no-drive drift of -28.1 to "seed 3"; it is seed 2.
+- The v0.2.0 README, DESIGN, `demo.py` and a `tests.py` comment attribute the no-drive drift of -28.1 to
+  "seed 3"; it is seed 2. The label text is corrected (a separate commit); no code or behaviour changed.
   See the DESIGN addendum and RESULTS.md section 1.
 
 ## [0.1.0] - supplied upload

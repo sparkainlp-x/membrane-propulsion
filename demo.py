@@ -18,7 +18,7 @@ for label, kw in CASES:
 print()
 print("Read: drive mode controls the sign, uniformly across seeds;")
 print("uniform drive gives ~0; no drive can still drift on its own")
-print("if the ring falls into a twisted state (seed 3: -28.1).")
+print("if the ring falls into a twisted state (seed 2: -28.1).")
 print("This is a synthetic drift toy, not a propulsion device.")
 print()
 print("Receiver sensor (inside the membrane, position 10, seed 42):")

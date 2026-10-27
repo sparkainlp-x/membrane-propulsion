@@ -48,7 +48,7 @@ class TestPropulsion(unittest.TestCase):
 
     def test_no_drive_sign_not_controlled(self):
         # Control, honestly stated: without a drive the ring can fall
-        # into a twisted state (seed 3: -28.1 sites) and drift on its
+        # into a twisted state (seed 2: -28.1 sites) and drift on its
         # own. What the drive controls is the SIGN, consistently
         # across seeds (see the test above); no-drive signs vary.
         disps = [run_case(seed=s, steps=400, drive_amp=0.0)[0]
