@@ -78,3 +78,33 @@ tests check, not a value copied from the model.
 - Is there a probe law derived from a real wave equation (acoustic
   radiation force, etc.) that gives the same drift without assuming
   it? That would be a different, physical model — not this toy.
+
+## Addendum (packaging, 0.2.0): what the multi-seed controls show
+
+Added after running `rigor.py` (see `RESULTS.md`). The text above is left unchanged; where the data
+contradict it, this addendum is the correction.
+
+1. **Seed label.** Above, "seed 3 drifts -28.1 sites with no drive at all" is a mislabel. Measured no-drive
+   displacements: seed 0 -2.2, seed 1 +0.7, seed 2 **-28.1**, seed 3 -1.0, seed 42 +1.8. The -28.1 is seed 2.
+   The code is unchanged; `tests.py` and `demo.py` still carry the old label in a comment and a printed
+   line (the test itself does not depend on it).
+2. **"Revised claim: drive controls sign."** Over 200 seeds the claim holds for the locked drive (sign right
+   in 200/200, 100.0%, Wilson 95% 98.1-100.0%) but it is true **by construction**: the probe law is assumed
+   (`v = mu * local phase gradient`) and a locked wave has gradient `2*pi*k/N` everywhere, so
+   displacement = `mu*k*T`. It is not evidence of any mechanism. A probe law of zero gives zero motion, and
+   a constant law gives drive-independent motion (null controls in `RESULTS.md`).
+3. **The no-drive control is not small.** 69.5% of no-drive rings end in a twisted state; 31.5% drift 10 sites
+   or more, 14.0% drift 20 sites or more (as far as the driven ring), and the maximum is 98.1 sites. The sign
+   is a coin flip (47.5% positive). The README's "+1.8" is an unrepresentative single seed.
+4. **The default warmup is short.** The twisted-state relaxation time (~N^2/(pi^2 K), about 208 time units)
+   is far longer than the default 10 time units; no-drive drift persists even after a warmup of 2000 steps.
+5. **Noise.** The claim "strong noise collapses drift" is only a seed-42 statement. At sigma = 2 across
+   100 seeds the forward sign survives in 57% (Wilson 95% 47.2-66.3%).
+6. **dt.** The driven result is converged for dt <= 0.2; dt = 0.4 is wrong. Individual no-drive displacements
+   are not converged at dt = 0.05.
+7. **Sensor.** `k_est`, `omega` and `coherence` on a locked ring are by construction (adjacent-phase
+   difference; coherence is a geometric function of |k|). Coherence does not separate a driven from an
+   undriven ring (AUC 0.585) and ranks noisy driven rings below undriven ones; `omega` does separate them
+   (AUC 1.0) but is meaningless if the sensor is moved between samples and aliases above a sampling
+   interval of pi/Omega. These are usage limits, not bugs.
+8. **Still not claimed:** any physical interpretation. The open questions above remain open.

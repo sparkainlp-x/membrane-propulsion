@@ -93,3 +93,21 @@ python test_sensor.py   # 8/8 tests (sensor)
 - Noise results are seed-dependent: strong noise collapses drift on
   seed 42, but across seeds the noisy drift varies in sign — the test
   pins only seed 42, and the README says so.
+
+## Multi-seed controls (added in the packaged 0.2.0)
+
+`rigor.py` runs 200-seed controls (standard library only); the results are in
+[`RESULTS.md`](RESULTS.md), generated from `results/results.json`. Run
+`python3 rigor.py --write` to reproduce (about 10 minutes) or `python3 rigor.py --quick` for a smoke run.
+Short version, all measured, none of it physics:
+
+- With the drive locked, the sign and size of the displacement (`mu*k*T`) are **by construction**.
+- The no-drive ring drifts on its own in many seeds (about 70% end in a twisted state; 31.5% drift 10 sites
+  or more in either direction), so single-seed no-drive numbers are not representative.
+- The sign control under noise sigma = 2 is close to a coin flip across seeds.
+- One documentation correction: the -28.1 no-drive drift is **seed 2**, not seed 3 (see the DESIGN addendum).
+- The sensor's `k_est` and `omega` equal the drive's values on a locked ring by construction, and its
+  coherence cannot tell a driven ring from an undriven one.
+
+This is a synthetic toy; it is not propulsion, thrust, force, or a space drive.
+`tests_rigor.py` tests the controls and the packaging metadata; `CHANGELOG.md` lists the changes.

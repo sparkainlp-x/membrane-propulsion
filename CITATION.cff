@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata from this file."
+title: "membrane-propulsion: a synthetic Kuramoto-ring toy with an assumed-law probe and a passive sensor (not propulsion)"
+type: software
+authors:
+  - family-names: "Brisson"
+    given-names: "Jean-François"
+    orcid: "https://orcid.org/0009-0000-9778-5374"
+    affiliation: "Spark AI NLP, Fredericton, New Brunswick, Canada"
+version: 0.2.0
+license: AGPL-3.0-only
+abstract: >-
+  Synthetic, stdlib-only Python toy: a ring of 64 phase oscillators with a
+  travelling drive, a probe whose velocity follows an assumed law
+  (proportional to the local phase gradient), and a passive receiver sensor.
+  It is not propulsion, not thrust, not a force or energy source and not a
+  space drive; no physical claim is made. The repository documents measured
+  behaviour and limits, including negative results.
+keywords:
+  - "synthetic"
+  - "toy-model"
+  - "kuramoto"
+  - "reproducible"
+  - "python"
